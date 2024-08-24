@@ -1,7 +1,9 @@
 package map;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class HashMapDemo {
 
@@ -40,9 +42,28 @@ public class HashMapDemo {
 
 		// Get All the Values
 		System.out.println(myMap.values());
-		
+
 		// Access Both
 		System.out.println(myMap.entrySet());
+
+		// Iterate
+		// Normal For loop wont work
+
+		System.out.println();
+		System.out.println("For each Loop: ");
+		for (Object key : myMap.keySet()) {
+
+			System.out.println(key + "   " + myMap.get(key));
+		}
+
+		System.out.println();
+		System.out.println("Iterator Loop: ");
+
+		Iterator<Entry<Integer, String>> it = myMap.entrySet().iterator();
+		while (it.hasNext()) {
+			Entry<Integer, String> entry = it.next();
+			System.out.println(entry.getKey() + "   " + entry.getValue());
+		}
 
 	}
 
